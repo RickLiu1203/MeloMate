@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import Search from './components/search';
+import Recommends from './components/Recommends';
+import Parameters from './components/Parameters';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [data, setData] = useState([{}])
+  const [token, setToken] = useState('')
+
+  const [seeds, setSeeds] = useState([])
+
+  const addSeed = (seed) => {
+    if (seeds.length < 5){
+      setSeeds(prevArray => [...prevArray, seed])
+    }
+  };
+
+  const removeSeed = (seedId) => {
+    setSeeds(prevSeeds => prevSeeds.filter(seeds => seeds !== seedId));
+  };
+  
+
+  useEffect(() => {
+    console.log(seeds); // Log the updated `seeds` state
+  }, [seeds]);
+
+  useEffect(() => {
+    fetch("http://localhost:5001/token")
+      .then(res => res.text())
+      .then(token => {
+        setToken(token);
+      })
+      .catch(error => {
+        console.error('Error fetching token:', error);
+      });
+  }, []);
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+   <div className='flex flex-col h-screen items-center gap-3 justify-start pt-8'>
+      <Search token={token} addSeed={addSeed} removeSeed={removeSeed} seeds={seeds}/>
+      <Parameters />
+      <Recommends seeds={seeds} token={token}/>
+   </div>
+  );
 }
 
-export default App
+export default App;
