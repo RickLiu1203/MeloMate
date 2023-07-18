@@ -39,7 +39,7 @@ function Search(props) {
         />
         <Tracks data={trackResults} handleClick={props.addSeed} 
             buttonText={'Add'} seeds={props.seeds} 
-            clickText={'Added'} isSeeded={false}/>
+            clickText={'Added'} isRecommend={false} token={''}/>
     </div>
     <h2>Selected Tracks</h2>
     <Seeds seeds={props.seeds} token={props.token} removeSeed={props.removeSeed}/>

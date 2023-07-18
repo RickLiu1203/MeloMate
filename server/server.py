@@ -48,12 +48,12 @@ def search_for_tracks():
     
     return json_result
 
-@app.route('/seeds')
+@app.route('/tracks')
 def display_seeds():
     token = request.args.get('token')
-    seeds = request.args.get('seeds')
+    tracks = request.args.get('tracks')
     url = 'https://api.spotify.com/v1/tracks?'
-    query = f'ids={seeds}'
+    query = f'ids={tracks}&market=US'
     headers = {'Authorization': 'Bearer ' + token}
 
     query_url = url + query
@@ -70,7 +70,7 @@ def recommendations():
     token = request.args.get('token')
     seeds = request.args.get('tracks')
     url = 'https://api.spotify.com/v1/recommendations?'
-    query = f'market=CA&limit=10&seed_tracks={seeds}&min_popularity=0&max_popularity=90'
+    query = f'market=US&limit=10&seed_tracks={seeds}'
     headers = {'Authorization': 'Bearer ' + token}
 
     query_url = url + query
