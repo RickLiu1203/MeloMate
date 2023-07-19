@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Seeds from './Seeds';
 import Tracks from './Tracks';
 
 function Search(props) {
@@ -27,23 +26,22 @@ function Search(props) {
   }, [trackName, props.token]);
 
   return (
-    <>
-    <h1>Step 1: Select Your Tracks</h1>
-    <div className='flex flex-col items-center bg-slate-400 h-auto w-5/6 py-4'>
+    <div className='flex flex-col w-screen lg:w-[30vw] lg:h-screen'>
+      <h1 className='font-extrabold text-2xl'>Step 1: Search For Tracks</h1>
+      <div className='flex flex-col items-center justify-between h-3/4 py-4 px-4 shadow-xl rounded-3xl gap-2'>
         <input
-            type="text"
-            value={trackName}
-            onChange={(e) => setTrackName(e.target.value)}
-            placeholder="Search for a track..."
-            className='w-full px-4 mb-4'
-        />
-        <Tracks data={trackResults} handleClick={props.addSeed} 
-            buttonText={'Add'} seeds={props.seeds} 
-            clickText={'Added'} isRecommend={false} token={''}/>
+                type="text"
+                value={trackName}
+                onChange={(e) => setTrackName(e.target.value)}
+                placeholder="Search for a track..."
+                className='w-full p-2 px-4 bg-slate-100 rounded-full mt-4 h-10'
+            />
+            <Tracks data={trackResults} handleClick={props.addSeed} 
+                buttonText={'Add'} seeds={props.seeds} 
+                clickText={'Added'} isRecommend={false} isSearch={true}
+                isSeeds={false} token={''}/>
+      </div>
     </div>
-    <h2>Selected Tracks</h2>
-    <Seeds seeds={props.seeds} token={props.token} removeSeed={props.removeSeed}/>
-    </>
   );
 }
 

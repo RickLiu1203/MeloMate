@@ -21,10 +21,12 @@ function Seeds(props) {
   }, [props.seeds]);
 
   return (
-    <div className='flex flex-col items-center bg-slate-400 h-auto w-5/6 py-4'>
+    <div className='flex flex-col items-start h-[42%] w-full p-4 rounded-3xl shadow-xl'>
+      <h2 className='px-4'>Selected Tracks</h2>
       <Tracks data={seedResults.tracks} handleClick={props.removeSeed} 
             buttonText={'Remove'} seeds={props.seeds} 
-            clickText={'Removing...'} isRecommend={false} token={''}/>
+            clickText={'Removing...'} isRecommend={false} isSeeds={true}
+            isSearch={false} token={''}/>
     </div>
   );
 }

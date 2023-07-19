@@ -36,7 +36,7 @@ def search_for_tracks():
     token = request.args.get('token')
     track_name = request.args.get('track_name')
     url = 'https://api.spotify.com/v1/search?'
-    query = f'q={track_name}&type=track&limit=5&market=US'
+    query = f'q={track_name}&type=track&limit=9&market=US'
     headers = {'Authorization': 'Bearer ' + token}
 
     query_url = url + query
@@ -69,8 +69,9 @@ def display_seeds():
 def recommendations():
     token = request.args.get('token')
     seeds = request.args.get('tracks')
+    params = request.args.get('params')
     url = 'https://api.spotify.com/v1/recommendations?'
-    query = f'market=US&limit=10&seed_tracks={seeds}'
+    query = f'market=US&limit=9&seed_tracks={seeds}{params}'
     headers = {'Authorization': 'Bearer ' + token}
 
     query_url = url + query
@@ -82,16 +83,6 @@ def recommendations():
     
     return json_result
 
-token = get_token()
-# tracks = search_for_tracks(token, 'i wonder kanye')
-
-test_list = ['4DYIDSMIB5y2UmZFv9fxeX', '5sdQOyqq2IDhvmx2lHOpwd', '7rbECVPkY5UODxoOUVKZnA']
-
-test_songs = ','.join(test_list)
-
-# recommendations(token, test_songs)
-
-print(test_songs)
 
 if __name__ == '__main__':
     app.run(host='localhost', port = 5001, debug=True)
