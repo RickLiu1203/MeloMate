@@ -27,14 +27,17 @@ function Search(props) {
 
   return (
     <div className='flex flex-col w-screen lg:w-[30vw] lg:h-screen'>
-      <h1 className='font-extrabold text-2xl'>Step 1: Search For Tracks</h1>
-      <div className='flex flex-col items-center justify-between h-3/4 py-4 px-4 shadow-xl rounded-3xl gap-2'>
+      <h1 className='font-extrabold text-lg mb-2'>
+        <span className='text-2xl font-black pe-2 text-green-400'>Step 1</span>
+         Search For Tracks
+      </h1>
+      <div className='flex flex-col items-center justify-start h-3/4 py-4 px-4 shadow-lg rounded-3xl gap-2 bg-white'>
         <input
                 type="text"
                 value={trackName}
                 onChange={(e) => setTrackName(e.target.value)}
                 placeholder="Search for a track..."
-                className='w-full p-2 px-4 bg-slate-100 rounded-full mt-4 h-10'
+                className='w-full p-2 px-4 bg-slate-100 rounded-full h-10'
             />
             <Tracks data={trackResults} handleClick={props.addSeed} 
                 buttonText={'Add'} seeds={props.seeds} 

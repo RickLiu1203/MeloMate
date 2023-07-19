@@ -1,18 +1,21 @@
 import React, { useRef } from 'react';
+import {FaCheck, FaTimes, FaTrash} from 'react-icons/fa'
 
 function Tracks(props) {
 
   return (
     <>
       {props.data.length > 0 ? (
-        <div className="flex flex-col object-contain w-full gap-4 pt-6 h-full overflow-scroll">
+        <div className="flex flex-col object-contain w-full gap-4 py-4 h-auto overflow-scroll bg-slate-100 rounded-xl box-border">
           {props.data.map((track, index) => (
-            <div className="flex flex-row justify-between px-2 items-center" key={track.id}>
+            <div className="flex flex-row justify-between px-4 items-center" key={track.id}>
               <div className="flex flex-row w-3/4 me-2">
-                <img src={track.album.images[2].url} className="h-[48px] w-[48px] rounded-lg me-4" alt="Album Art" />
-                <div className="flex flex-col w-2/3">
-                  <span className="font-extrabold truncate overflow-hidden">{track.name}</span>
-                  <div className='truncate'>
+                <img src={track.album.images[2].url} className="h-[44px] w-[44px] rounded-lg me-4" alt="Album Art" />
+                <div className="flex flex-col w-2/3 overflow-hidden">
+                  <span className="font-extrabold truncate overflow-hidden">
+                    {track.name}
+                  </span>
+                  <div className='truncate text-sm'>
                     {track.artists.map((artist, artistIndex) => (
                       <span key={artist.id}>
                         {artist.name}
@@ -29,19 +32,29 @@ function Tracks(props) {
               )}
 
               {props.isSearch && (!props.seeds.includes(track.id) ?
-              <button onClick={() => props.handleClick(track.id)}>{props.buttonText}</button> :
-              <p>Added</p>
+                <button onClick={() => props.handleClick(track.id)}
+                className='flex items-center justify-center bg-green-400 rounded-full text-white font-medium hover:opacity-75 w-12 h-8'>
+                  {props.buttonText}
+                </button> :
+                <p className='flex items-center justify-center border-solid border-green-400 border-2 rounded-full py-1 px-3 text-green-400 font-medium w-12 h-8'>
+                  <FaCheck/>
+                </p>
               )}
 
               {props.isSeeds && (props.seeds.includes(track.id) ?
-              <button onClick={() => props.handleClick(track.id)}>{props.buttonText}</button> :
-              <p>Removing...</p>
+              <button onClick={() => props.handleClick(track.id)}
+              className='flex justify-center items-center bg-red-500 rounded-full text-white text-xl font-medium hover:opacity-75 w-12 h-8'>
+                <FaTimes/>
+              </button> :
+              <p className='flex flex-row items-center justify-center border-solid border-red-500 border-2 rounded-full text-red-500 font-medium w-12 h-8'>
+                <FaTrash/>
+              </p>
               )}
             </div>
           ))}
         </div>
       ):
-      <div className="flex flex-col object-contain w-full gap-4 pt-6 h-full overflow-scroll bg-slate-300 rounded-xl">
+      <div className="flex flex-col object-contain w-full gap-4 pt-6 h-full overflow-scroll bg-slate-100 rounded-xl">
 
       </div>
     }

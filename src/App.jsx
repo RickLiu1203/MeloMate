@@ -45,8 +45,8 @@ function App() {
 
 
   return (
-      <div className='overflow-hidden h-screen'>
-        <div className='grid grid-flow-col w-screen h-20 pt-6 justify-center gap-6 overflow-hidden'>
+      <div className='h-screen overflow-scroll smh:overflow-hidden bg-slate-100'>
+        <div className='grid grid-flow-col w-screen pt-10 justify-center gap-6'>
             <div className='flex flex-col w-screen lg:w-[30vw]'>
               <h1 className='text-4xl font-black'>MeloMate</h1>
             </div>
@@ -55,12 +55,12 @@ function App() {
             </div>
             <div className='flex flex-col w-screen lg:w-[30vw] items-end'> 
               <a href={'https://github.com/RickLiu1203/MeloMate'} 
-              target={'_blank'} className='flex w-8 h-8 justify-center items-center'> 
+              target={'_blank'} className='flex w-10 h-10 justify-center items-center bg-white rounded-full shadow-md'> 
                 <FaGithub className='w-8 h-8 hover:opacity-60'/>
               </a>
             </div>
         </div>
-        <div className='grid grid-flow-col w-screen h-screen pt-12 justify-center gap-6 overflow-hidden'>
+        <div className='grid grid-flow-col w-screen h-screen justify-center gap-6 overflow-hidden pt-4 smh:pt-10'>
             <Search token={token} addSeed={addSeed} removeSeed={removeSeed} seeds={seeds}/>
             <Parameters addParams={addParams} removeSeed={removeSeed} seeds={seeds} token={token}/>
             <Recommends seeds={seeds} token={token} params={paramString}/>

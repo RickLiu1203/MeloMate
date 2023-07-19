@@ -36,27 +36,32 @@ function Parameters(props) {
   
     return (
       <div className='flex flex-col w-screen lg:w-[30vw] lg:h-screen'>
-        <h1 className='font-extrabold text-2xl'>Step 2: Set Your Inputs</h1>
-        <Seeds seeds={props.seeds} token={props.token} removeSeed={props.removeSeed}/>
-        <div className='flex flex-col shadow-xl rounded-3xl h-[33%] p-4'>
-            <h2>Select A Parameter (Optional)</h2>
-            <select value={selectedOption} onChange={handleListChange} className='px-0'>
-                <option value='none'>None</option>
-                <option value='popularity'>Popularity</option>
-                <option value='energy'>Energy</option>
-                <option value='valence'>Positivity</option>
-                <option value='acousticness'>Acousticness</option>
-                <option value='instrumentalness'>Instrumentalness</option>
-            </select>
-            {selectedOption !== 'none' ? <input
-                type='range'
-                min={1}
-                max={5}
-                value={selectedValue}
-                onChange={handleBarChange}
-          /> :
-          <h1>Default Recommendations (No Parameters Selected)</h1>}
-        </div>
+        <h1 className='font-extrabold text-lg mb-2'>
+          <span className='text-2xl font-black pe-2 text-green-400'>Step 2</span>
+          Set Your Inputs
+        </h1>        
+        <div className='flex flex-col h-3/4 justify-between'>
+          <Seeds seeds={props.seeds} token={props.token} removeSeed={props.removeSeed}/>
+          <div className='flex flex-col shadow-lg rounded-3xl h-[43%] p-4 bg-white'>
+              <h2 className='font-extrabold'>Select A Parameter (Optional)</h2>
+              <select value={selectedOption} onChange={handleListChange} className='px-0'>
+                  <option value='none'>None</option>
+                  <option value='popularity'>Popularity</option>
+                  <option value='energy'>Energy</option>
+                  <option value='valence'>Positivity</option>
+                  <option value='acousticness'>Acousticness</option>
+                  <option value='instrumentalness'>Instrumentalness</option>
+              </select>
+              {selectedOption !== 'none' ? <input
+                  type='range'
+                  min={1}
+                  max={5}
+                  value={selectedValue}
+                  onChange={handleBarChange}
+            /> :
+            <h1>Default Recommendations (No Parameters Selected)</h1>}
+          </div>
+          </div>
       </div>
     );
   }

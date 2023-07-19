@@ -36,7 +36,7 @@ def search_for_tracks():
     token = request.args.get('token')
     track_name = request.args.get('track_name')
     url = 'https://api.spotify.com/v1/search?'
-    query = f'q={track_name}&type=track&limit=9&market=US'
+    query = f'q={track_name}&type=track&limit=10&market=US'
     headers = {'Authorization': 'Bearer ' + token}
 
     query_url = url + query
@@ -71,7 +71,7 @@ def recommendations():
     seeds = request.args.get('tracks')
     params = request.args.get('params')
     url = 'https://api.spotify.com/v1/recommendations?'
-    query = f'market=US&limit=9&seed_tracks={seeds}{params}'
+    query = f'market=US&limit=10&seed_tracks={seeds}{params}'
     headers = {'Authorization': 'Bearer ' + token}
 
     query_url = url + query
