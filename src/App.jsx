@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Search from './components/search';
 import Recommends from './components/Recommends';
 import Parameters from './components/Parameters';
-import {FaGithub} from 'react-icons/fa'
+import {FaGithub, FaMusic} from 'react-icons/fa'
 
 function App() {
   const [data, setData] = useState([{}])
@@ -47,15 +47,16 @@ function App() {
   return (
       <div className='h-screen overflow-scroll smh:overflow-hidden bg-slate-100'>
         <div className='grid grid-flow-col w-screen pt-10 justify-center gap-6'>
-            <div className='flex flex-col w-screen lg:w-[30vw]'>
-              <h1 className='text-4xl font-black'>MeloMate</h1>
+            <div className='flex flex-row items-center  w-screen lg:w-[30vw]'>
+              <h1 className='text-4xl font-black me-2'>MeloMate </h1>
+              <FaMusic className='text-2xl'/>
             </div>
             <div className='flex flex-col w-screen lg:w-[30vw]'>
               
             </div>
             <div className='flex flex-col w-screen lg:w-[30vw] items-end'> 
-              <a href={'https://github.com/RickLiu1203/MeloMate'} 
-              target={'_blank'} className='flex w-10 h-10 justify-center items-center bg-white rounded-full shadow-md'> 
+              <a href='https://github.com/RickLiu1203/MeloMate' 
+              target='_blank' className='flex w-11 h-11 justify-center items-center bg-white rounded-full shadow-lg'> 
                 <FaGithub className='w-8 h-8 hover:opacity-60'/>
               </a>
             </div>

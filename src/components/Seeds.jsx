@@ -24,7 +24,7 @@ function Seeds(props) {
     <div className='flex flex-col items-start h-[55%] w-full p-4 rounded-3xl shadow-lg gap-2 bg-white'>
       <h2 className='font-extrabold'>Selected Tracks {props.seeds.length === 5 ? <span className='text-red-500'>({5 - props.seeds.length} Remaining)</span> : (<span>({5 - props.seeds.length} Remaining)</span>)}</h2>
       <Tracks data={seedResults.tracks} handleClick={props.removeSeed} 
-            buttonText={'Remove'} seeds={props.seeds} 
+            text={'Your Selected Tracks'} seeds={props.seeds} 
             clickText={'Removing...'} isRecommend={false} isSeeds={true}
             isSearch={false} token={''}/>
     </div>

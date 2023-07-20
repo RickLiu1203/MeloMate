@@ -71,7 +71,7 @@ def recommendations():
     seeds = request.args.get('tracks')
     params = request.args.get('params')
     url = 'https://api.spotify.com/v1/recommendations?'
-    query = f'market=US&limit=10&seed_tracks={seeds}{params}'
+    query = f'market=US&limit=20&seed_tracks={seeds}{params}'
     headers = {'Authorization': 'Bearer ' + token}
 
     query_url = url + query

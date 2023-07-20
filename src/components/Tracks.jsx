@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
-import {FaCheck, FaTimes, FaTrash} from 'react-icons/fa'
+import {FaCheck, FaTimes, FaTrash, FaPlus} from 'react-icons/fa'
 
 function Tracks(props) {
 
   return (
     <>
       {props.data.length > 0 ? (
-        <div className="flex flex-col object-contain w-full gap-4 py-4 h-auto overflow-scroll bg-slate-100 rounded-xl box-border">
+        <div className="flex flex-col object-contain w-full gap-4 py-4 h-auto overflow-scroll bg-slate-100 rounded-xl box-border shadow-md">
           {props.data.map((track, index) => (
             <div className="flex flex-row justify-between px-4 items-center" key={track.id}>
               <div className="flex flex-row w-3/4 me-2">
@@ -33,20 +33,20 @@ function Tracks(props) {
 
               {props.isSearch && (!props.seeds.includes(track.id) ?
                 <button onClick={() => props.handleClick(track.id)}
-                className='flex items-center justify-center bg-green-400 rounded-full text-white font-medium hover:opacity-75 w-12 h-8'>
-                  {props.buttonText}
+                className='flex items-center justify-center bg-green-400 rounded-full text-white text-lg font-medium hover:opacity-75 w-11 h-7'>
+                  <FaPlus/>
                 </button> :
-                <p className='flex items-center justify-center border-solid border-green-400 border-2 rounded-full py-1 px-3 text-green-400 font-medium w-12 h-8'>
+                <p className='flex items-center justify-center border-solid border-green-400 border-2 rounded-full py-1 px-3 text-green-400 font-medium w-11 h-7'>
                   <FaCheck/>
                 </p>
               )}
 
               {props.isSeeds && (props.seeds.includes(track.id) ?
               <button onClick={() => props.handleClick(track.id)}
-              className='flex justify-center items-center bg-red-500 rounded-full text-white text-xl font-medium hover:opacity-75 w-12 h-8'>
+              className='flex justify-center items-center bg-red-500 rounded-full text-white text-xl font-medium hover:opacity-75 w-11 h-7'>
                 <FaTimes/>
               </button> :
-              <p className='flex flex-row items-center justify-center border-solid border-red-500 border-2 rounded-full text-red-500 font-medium w-12 h-8'>
+              <p className='flex flex-row items-center justify-center border-solid border-red-500 border-2 rounded-full text-red-500 font-medium w-11 h-7'>
                 <FaTrash/>
               </p>
               )}
@@ -54,8 +54,10 @@ function Tracks(props) {
           ))}
         </div>
       ):
-      <div className="flex flex-col object-contain w-full gap-4 pt-6 h-full overflow-scroll bg-slate-100 rounded-xl">
-
+      <div className="flex flex-col items-center justify-center w-full gap-4 pt-6 h-full overflow-scroll bg-slate-100 rounded-xl px-4 shadow-md">
+        <h1 className='text-center text-xl font-medium text-slate-300'>
+          {props.text}&nbsp;Will Show Up Here
+          </h1>
       </div>
     }
     </>

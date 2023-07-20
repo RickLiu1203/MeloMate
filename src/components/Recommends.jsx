@@ -26,11 +26,11 @@ function Recommends(props) {
         </h1>
         <div className='flex flex-col items-center justify-between h-3/4 p-4 shadow-lg w-full rounded-3xl gap-2 bg-white'>
           <Tracks data={recommends} handleClick={''} 
-          buttonText={''} seeds={props.seeds} 
+          text={'Recommendations'} seeds={props.seeds} 
           clickText={''} isRecommend={true} isSeeds={false}
           isSearch={false} token={props.token}/>
           <button onClick={() => getRecommends()} 
-          className='bg-green-400 p-2 text-sm rounded-full font-bold hover:opacity-80 text-white self-start justify-self-end h-10'>
+          className='bg-green-400 p-2 text-sm rounded-full font-bold hover:opacity-80 text-white self-start justify-self-end h-10 mt-2'>
             Get New Recommendations
           </button> 
         </div>
