@@ -5,7 +5,8 @@
         "2": {"max": 65},
         "3": {"max": 78},
         "4": {"max": 88},
-        "5": {"max": 100}
+        "5": {"max": 100},
+        "description": "The popularity of a track is based on its recent global play count"
     },
     "energy": {
         "0": {"max": 0},

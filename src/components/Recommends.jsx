@@ -20,7 +20,7 @@ function Recommends(props) {
 
   return (
     <div className='flex flex-col w-screen lg:w-[30vw] lg:h-screen'>
-        <h1 className='font-extrabold text-lg w-full mb-2'> 
+        <h1 className='font-extrabold text-lg w-full mb-2 text-slate-600'> 
           <span className='text-2xl font-black pe-2 text-green-400'>Step 3</span> 
           Get Recommendations
         </h1>

@@ -14,7 +14,6 @@ function App() {
 
   const addParams = (params) => {
     setParamString(params)
-    console.log(paramString)
   }
 
   const addSeed = (seed) => {
@@ -47,7 +46,7 @@ function App() {
   return (
       <div className='h-screen overflow-scroll smh:overflow-hidden bg-slate-100'>
         <div className='grid grid-flow-col w-screen pt-10 justify-center gap-6'>
-            <div className='flex flex-row items-center  w-screen lg:w-[30vw]'>
+            <div className='flex flex-row items-center  w-screen lg:w-[30vw] text-slate-700'>
               <h1 className='text-4xl font-black me-2'>MeloMate </h1>
               <FaMusic className='text-2xl'/>
             </div>
@@ -57,7 +56,7 @@ function App() {
             <div className='flex flex-col w-screen lg:w-[30vw] items-end'> 
               <a href='https://github.com/RickLiu1203/MeloMate' 
               target='_blank' className='flex w-11 h-11 justify-center items-center bg-white rounded-full shadow-lg'> 
-                <FaGithub className='w-8 h-8 hover:opacity-60'/>
+                <FaGithub className='w-8 h-8 hover:opacity-60 text-slate-600'/>
               </a>
             </div>
         </div>
