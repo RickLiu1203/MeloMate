@@ -3,6 +3,8 @@ import Tracks from './Tracks';
 
 function Recommends(props) {
     const [recommends, setRecommends] = useState([]);
+    const [click, setClick] = useState(false)
+
     const getRecommends = () => {
         if(props.seeds.length > 0){
             console.log(props.params)
@@ -10,6 +12,7 @@ function Recommends(props) {
             .then(res => res.json())
             .then(recommends => {
               setRecommends(recommends.tracks);
+              setClick(true);
               console.log(recommends)
             })
             .catch(error => {
@@ -25,7 +28,7 @@ function Recommends(props) {
           Get Recommendations
         </h1>
         <div className='flex flex-col items-center justify-between h-3/4 p-4 shadow-lg w-full rounded-3xl gap-2 bg-white'>
-          <Tracks data={recommends} handleClick={''} 
+          <Tracks data={recommends} handleClick={click} 
           text={'Recommendations'} seeds={props.seeds} 
           clickText={''} isRecommend={true} isSeeds={false}
           isSearch={false} token={props.token}/>

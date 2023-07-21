@@ -1,43 +1,47 @@
 {
     "popularity": {
-        "0": {"max": 0},
-        "1": {"max": 55},
-        "2": {"max": 65},
-        "3": {"max": 78},
-        "4": {"max": 88},
-        "5": {"max": 100},
-        "description": "The popularity of a track is based on its recent global play count"
+        "0": 0,
+        "1": 55,
+        "2": 65,
+        "3": 78,
+        "4": 88,
+        "5": 100,
+        "description": "The popularity of a track is based on its recent global play count."
     },
     "energy": {
-        "0": {"max": 0},
-        "1": {"max": 55},
-        "2": {"max": 65},
-        "3": {"max": 78},
-        "4": {"max": 88},
-        "5": {"max": 100}
+        "0": 0,
+        "1": 0.55,
+        "2": 0.65,
+        "3": 0.78,
+        "4": 0.88,
+        "5": 1,
+        "description": "The energy of a track reflects its intensity and activity. Energetic tracks convey a sense of speed, loudness, and liveliness."
     },
     "valence": {
-        "0": {"max": 0},
-        "1": {"max": 55},
-        "2": {"max": 65},
-        "3": {"max": 78},
-        "4": {"max": 88},
-        "5": {"max": 100}
+        "0": 0,
+        "1": 0.55,
+        "2": 0.65,
+        "3": 0.78,
+        "4": 0.88,
+        "5": 1,
+        "description": "The valence of a track describes its musical positiveness."
     },
     "acousticness": {
-        "0": {"max": 0},
-        "1": {"max": 55},
-        "2": {"max": 65},
-        "3": {"max": 78},
-        "4": {"max": 88},
-        "5": {"max": 100}
+        "0": 0,
+        "1": 0.2,
+        "2": 0.4,
+        "3": 0.6,
+        "4": 0.8,
+        "5": 1,
+        "description": "The acousticness of a track measures how much a track relies on natural, non-electronic sounds like instruments and vocals."
     },
     "instrumentalness": {
-        "0": {"max": 0},
-        "1": {"max": 55},
-        "2": {"max": 65},
-        "3": {"max": 78},
-        "4": {"max": 88},
-        "5": {"max": 100}
+        "0": 0,
+        "1": 0.000005,
+        "2": 0.00005,
+        "3": 0.0005,
+        "4": 0.005,
+        "5": 1,
+        "description": "The instrumentalness of a track gauges the presence of vocals. \"Ooh\" and \"Aah\" vocals are considered as instrumentals."
     }
 }

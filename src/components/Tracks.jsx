@@ -55,9 +55,13 @@ function Tracks(props) {
         </div>
       ):
       <div className="flex flex-col items-center justify-center w-full gap-4 pt-6 h-full overflow-scroll bg-slate-100 rounded-xl px-4 shadow-md">
+        {!(props.isRecommend && (props.handleClick === true)) ? 
         <h1 className='text-center text-xl font-medium text-slate-300'>
           {props.text}&nbsp;Will Show Up Here
-          </h1>
+        </h1> : 
+        <h1 className='text-center text-xl font-medium text-slate-300'>
+          No Recommendations Found (Try Selecting New Parameters)
+        </h1>}
       </div>
     }
     </>

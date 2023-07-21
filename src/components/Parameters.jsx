@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Listbox } from '@headlessui/react'
 import params from '../params.json'
 import Seeds from './Seeds';
-import {FaArrowsAltV, FaGlobeAmericas} from 'react-icons/fa'
+import {FaArrowsAltV, FaGlobeAmericas, FaCheck} from 'react-icons/fa'
 import {BsFire} from 'react-icons/bs'
 import {FaPerson} from 'react-icons/fa6'
 
@@ -18,8 +18,8 @@ function Parameters(props) {
           const selectedOptionParams = params[selectedOption];
           const selectedSliderValue = parseInt(event.target.value);
           setSelectedValue(selectedSliderValue);
-          setMinValue(selectedOptionParams[selectedSliderValue-1].max); 
-          setMaxValue(selectedOptionParams[selectedSliderValue].max); 
+          setMinValue(selectedOptionParams[selectedSliderValue-1]); 
+          setMaxValue(selectedOptionParams[selectedSliderValue]); 
     };
 
   useEffect(() => {
@@ -34,8 +34,8 @@ function Parameters(props) {
     if(selectedOption !== 'none'){
       const selectedOptionParams = params[selectedOption];
       setSelectedValue(3);
-      setMinValue(selectedOptionParams[2].max); 
-      setMaxValue(selectedOptionParams[3].max); 
+      setMinValue(selectedOptionParams[2]); 
+      setMaxValue(selectedOptionParams[3]); 
     }
   }, [selectedOption])
 
@@ -75,8 +75,16 @@ function Parameters(props) {
                     }`
                   }
                   >
-                    
-                    {option.charAt(0).toUpperCase() + option.slice(1)}
+                      {option === selectedOption ?                     
+                      <div className='flex flex-row items-center gap-1 text-green-500 font-extrabold'>
+                        <FaCheck/>
+                        {option.charAt(0).toUpperCase() + option.slice(1)}
+                      </div> : 
+                      <div className='flex flex-row items-center gap-1'>
+                        {option.charAt(0).toUpperCase() + option.slice(1)}
+                      </div>
+                      }
+
                   </Listbox.Option>
                 ))}
               </Listbox.Options>
@@ -85,7 +93,10 @@ function Parameters(props) {
               {selectedOption !== 'none' ? 
                   <div className='flex flex-row justify-center w-full gap-4' data-theme='slider'>
                     <div className='flex justify-center items-end h-1/2'>
+                      {selectedValue === 1 ? 
+                      <FaPerson className='text-green-400 text-2xl'/> :
                       <FaPerson className='text-slate-400 text-2xl'/>
+                      }     
                     </div>
                     <div className='flex flex-col w-3/4'>
                       <input
@@ -96,7 +107,7 @@ function Parameters(props) {
                           onChange={handleBarChange}
                           className='range range-primary'
                       />
-                      <div className="w-full flex justify-between text-xs px-2.5 font-bold text-slate-300 mt-1">
+                      <div className="w-full flex justify-between text-xs px-2.5 font-black text-slate-300 mt-1">
                         <span>|</span>
                         <span>|</span>
                         <span>|</span>
@@ -105,11 +116,17 @@ function Parameters(props) {
                       </div>
                     </div>
                     <div className='flex justify-center items-end h-1/2 pt-6'>
+                      {selectedValue === 5 ? 
+                      <FaGlobeAmericas className='text-green-400 text-2xl'/> :
                       <FaGlobeAmericas className='text-slate-400 text-2xl'/>
+                      }
                     </div>
                   </div> :
               <h1 className='text-slate-600 font-semibold text-center'>Get Default Recommendations (No Parameters Selected)</h1>}
-              {selectedOption === 'none' ?<div className='h-1/6'></div> : <h1 className='text-sm text-slate-600 font-semibold text-center px-4 py-2 rounded-xl shadow-md bg-slate-100'>{selectedOption !== 'none' && (params[selectedOption]['description'])}</h1>}
+              {selectedOption === 'none' ?<div className='h-1/6'></div> : 
+              <h1 className='text-sm text-slate-600 font-semibold text-center px-4 py-2 rounded-xl shadow-md bg-slate-100'>
+                {selectedOption !== 'none' && (params[selectedOption]['description'])}
+                </h1>}
               </div>
         </div>
         </div>

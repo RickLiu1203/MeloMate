@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Search from './components/search';
 import Recommends from './components/Recommends';
 import Parameters from './components/Parameters';
-import {FaGithub, FaMusic} from 'react-icons/fa'
+import {FaGithub, FaMusic, FaMoon} from 'react-icons/fa'
 
 function App() {
   const [data, setData] = useState([{}])
@@ -53,10 +53,13 @@ function App() {
             <div className='flex flex-col w-screen lg:w-[30vw]'>
               
             </div>
-            <div className='flex flex-col w-screen lg:w-[30vw] items-end'> 
+            <div className='flex flex-row  w-screen lg:w-[30vw] justify-end gap-2'> 
+              <button className='w-11 h-11 bg-white rounded-full flex justify-center items-center shadow-lg hover:opacity-75'>
+                <FaMoon className='text-2xl text-slate-600'/>
+              </button>
               <a href='https://github.com/RickLiu1203/MeloMate' 
-              target='_blank' className='flex w-11 h-11 justify-center items-center bg-white rounded-full shadow-lg'> 
-                <FaGithub className='w-8 h-8 hover:opacity-60 text-slate-600'/>
+              target='_blank' className='flex w-11 h-11 justify-center items-center bg-white rounded-full shadow-lg hover:opacity-75'> 
+                <FaGithub className='w-8 h-8 text-slate-600'/>
               </a>
             </div>
         </div>
