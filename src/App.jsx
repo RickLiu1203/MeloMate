@@ -12,6 +12,8 @@ function App() {
 
   const [paramString, setParamString] = useState('')
 
+  const [dark, setDark] = useState(true)
+
   const addParams = (params) => {
     setParamString(params)
   }
@@ -25,8 +27,11 @@ function App() {
   const removeSeed = (seedId) => {
     setSeeds(prevSeeds => prevSeeds.filter(seeds => seeds !== seedId));
   };
-  
 
+  const toggleDark = () => {
+    setDark(!dark)
+  }
+  
   useEffect(() => {
     console.log(paramString);
   }, [paramString]);
@@ -44,9 +49,10 @@ function App() {
 
 
   return (
-      <div className='h-screen overflow-scroll smh:overflow-hidden bg-slate-100'>
+    <html className={dark ? 'dark' : ''}>
+      <div className='h-screen overflow-scroll smh:overflow-hidden bg-slate-100 dark:bg-slate-800'>
         <div className='grid grid-flow-col w-screen pt-10 justify-center gap-6'>
-            <div className='flex flex-row items-center  w-screen lg:w-[30vw] text-slate-700'>
+            <div className='flex flex-row items-center  w-screen lg:w-[30vw] text-slate-700 dark:text-slate-100'>
               <h1 className='text-4xl font-black me-2'>MeloMate </h1>
               <FaMusic className='text-2xl'/>
             </div>
@@ -54,12 +60,13 @@ function App() {
               
             </div>
             <div className='flex flex-row  w-screen lg:w-[30vw] justify-end gap-2'> 
-              <button className='w-11 h-11 bg-white rounded-full flex justify-center items-center shadow-lg hover:opacity-75'>
-                <FaMoon className='text-2xl text-slate-600'/>
+              <button className='w-11 h-11 bg-white rounded-full flex justify-center items-center shadow-lg hover:opacity-75 dark:bg-slate-600'
+              onClick={toggleDark}>
+                <FaMoon className='text-2xl text-slate-600 dark:text-slate-100'/>
               </button>
               <a href='https://github.com/RickLiu1203/MeloMate' 
-              target='_blank' className='flex w-11 h-11 justify-center items-center bg-white rounded-full shadow-lg hover:opacity-75'> 
-                <FaGithub className='w-8 h-8 text-slate-600'/>
+              target='_blank' className='flex w-11 h-11 justify-center items-center bg-white rounded-full shadow-lg hover:opacity-75 dark:bg-slate-600'> 
+                <FaGithub className='w-8 h-8 text-slate-600 dark:text-slate-100'/>
               </a>
             </div>
         </div>
@@ -69,6 +76,7 @@ function App() {
             <Recommends seeds={seeds} token={token} params={paramString}/>
         </div>
       </div>
+    </html>
   );
 }
 

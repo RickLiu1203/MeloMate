@@ -3,8 +3,8 @@
         "0": 0,
         "1": 55,
         "2": 65,
-        "3": 78,
-        "4": 88,
+        "3": 72,
+        "4": 80,
         "5": 100,
         "description": "The popularity of a track is based on its recent global play count."
     },
@@ -17,12 +17,12 @@
         "5": 1,
         "description": "The energy of a track reflects its intensity and activity. Energetic tracks convey a sense of speed, loudness, and liveliness."
     },
-    "valence": {
+    "danceability": {
         "0": 0,
         "1": 0.55,
         "2": 0.65,
-        "3": 0.78,
-        "4": 0.88,
+        "3": 0.75,
+        "4": 0.82,
         "5": 1,
         "description": "The valence of a track describes its musical positiveness."
     },

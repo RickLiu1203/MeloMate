@@ -4,8 +4,13 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'dark': '0 0 20px -10px rgb(74, 222, 128)',
+      }
+    },
     screens: {
       'smh': {'raw': '(min-height: 700px)'},
 

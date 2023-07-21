@@ -6,7 +6,7 @@ function Tracks(props) {
   return (
     <>
       {props.data.length > 0 ? (
-        <div className="flex flex-col object-contain w-full gap-4 py-4 h-auto overflow-scroll bg-slate-100 rounded-xl box-border shadow-md text-slate-600">
+        <div className="flex flex-col object-contain w-full gap-4 py-4 h-auto overflow-scroll bg-slate-100 rounded-xl box-border shadow-md text-slate-600 dark:bg-slate-600 dark:text-slate-100">
           {props.data.map((track, index) => (
             <div className="flex flex-row justify-between px-4 items-center" key={track.id}>
               <div className="flex flex-row w-3/4 me-2">
@@ -54,7 +54,7 @@ function Tracks(props) {
           ))}
         </div>
       ):
-      <div className="flex flex-col items-center justify-center w-full gap-4 pt-6 h-full overflow-scroll bg-slate-100 rounded-xl px-4 shadow-md">
+      <div className="flex flex-col items-center justify-center w-full gap-4 pt-6 h-full overflow-scroll bg-slate-100 rounded-xl px-4 shadow-md dark:bg-slate-600">
         {!(props.isRecommend && (props.handleClick === true)) ? 
         <h1 className='text-center text-xl font-medium text-slate-300'>
           {props.text}&nbsp;Will Show Up Here
