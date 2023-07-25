@@ -24,7 +24,7 @@
         "3": 0.75,
         "4": 0.82,
         "5": 1,
-        "description": "The valence of a track describes its musical positiveness."
+        "description": "The danceability of a track reflects how good a track is for dancing."
     },
     "acousticness": {
         "0": 0,
