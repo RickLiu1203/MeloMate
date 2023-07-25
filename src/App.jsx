@@ -14,6 +14,25 @@ function App() {
 
   const [dark, setDark] = useState(false)
 
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setScreenWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (screenWidth >= 1000 && screenWidth <= 1030) {
+      document.body.scrollTop = 0;
+    }
+  }, [screenWidth]);
+
   const addParams = (params) => {
     setParamString(params)
   }
@@ -50,7 +69,7 @@ function App() {
 
   return (
     <html className={dark ? 'dark' : ''}>
-      <div className='lg:fixed h-screen bg-slate-100 dark:bg-slate-800 lg:overflow-hidden overflow-scroll w-screen pb-6'>
+      <div className='lg:fixed lg:h-screen bg-slate-100 dark:bg-slate-800 lg:overflow-hidden w-screen pb-6'>
         <div className='h-[8vh] lg:grid lg:grid-flow-col w-screen lg:pt-10 pt-12 lg:justify-center lg:gap-6 lg:px-0 md:px-10 px-6 flex flex-row justify-between lg:mb-8'>
             <div className='flex flex-row items-center lg:w-[30vw] text-slate-700 dark:text-slate-100 w-auto'>
               <h1 className='lg:text-4xl font-black me-2 sm:text-3xl text-2xl'>MeloMate </h1>
