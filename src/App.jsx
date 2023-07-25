@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Search from './components/search.jsx';
+import Search from './components/Search.jsx';
 import Recommends from './components/Recommends';
 import Parameters from './components/Parameters';
 import {FaGithub, FaMusic, FaMoon, FaSun} from 'react-icons/fa'
