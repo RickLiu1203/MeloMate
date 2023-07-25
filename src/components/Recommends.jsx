@@ -22,12 +22,12 @@ function Recommends(props) {
     };
 
   return (
-    <div className='flex flex-col w-screen lg:w-[30vw] lg:h-screen'>
-        <h1 className='font-extrabold text-lg w-full mb-2 text-slate-600 dark:text-slate-100'> 
+    <div className='flex flex-col w-screen lg:w-[30vw] lg:h-screen h-auto lg:px-0 md:px-10 px-6 lg:mb-0 mb-8'>
+        <h1 className='font-extrabold lg:text-lg w-full mb-2 text-slate-600 dark:text-slate-100 text-xl'> 
           <span className='text-2xl font-black pe-2 text-green-400'>Step 3</span> 
           Get Recommendations
         </h1>
-        <div className='flex flex-col items-center justify-between h-3/4 p-4 shadow-lg w-full rounded-3xl gap-2 bg-white dark:bg-slate-700'>
+        <div className='flex flex-col items-center justify-between lg:h-3/4 p-4 shadow-lg w-full rounded-3xl gap-2 bg-white dark:bg-slate-700 h-96'>
           <Tracks data={recommends} handleClick={click} 
           text={'Recommendations'} seeds={props.seeds} 
           clickText={''} isRecommend={true} isSeeds={false}

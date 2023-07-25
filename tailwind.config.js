@@ -12,9 +12,9 @@ export default {
       }
     },
     screens: {
-      'smh': {'raw': '(min-height: 700px)'},
+      'xs': '400px',
 
-      'sm': '640px',
+      'sm': '500px',
       // => @media (min-width: 640px) { ... }
 
       'md': '768px',

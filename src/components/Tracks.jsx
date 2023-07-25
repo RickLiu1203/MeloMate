@@ -6,16 +6,16 @@ function Tracks(props) {
   return (
     <>
       {props.data.length > 0 ? (
-        <div className="flex flex-col object-contain w-full gap-4 py-4 h-auto overflow-scroll bg-slate-100 rounded-xl box-border shadow-md text-slate-600 dark:bg-slate-600 dark:text-slate-100">
+        <div className="flex flex-col object-contain w-full gap-4 py-4 h-auto overflow-scroll bg-slate-100 rounded-xl box-border shadow-md text-slate-600 dark:bg-slate-600 dark:text-slate-200">
           {props.data.map((track, index) => (
             <div className="flex flex-row justify-between px-4 items-center" key={track.id}>
               <div className="flex flex-row w-3/4 me-2">
-                <img src={track.album.images[2].url} className="h-[44px] w-[44px] rounded-lg me-4" alt="Album Art" />
+                <img src={track.album.images[2].url} className="md:h-[44px] md:w-[44px] rounded-lg me-4 h-[38px] w-[38px]" alt="Album Art" />
                 <div className="flex flex-col w-2/3 overflow-hidden">
-                  <span className="font-extrabold truncate overflow-hidden">
+                  <span className="font-bold truncate overflow-hidden md:text-base text-sm">
                     {track.name}
                   </span>
-                  <div className='truncate text-sm'>
+                  <div className='truncate md:text-sm text-xs'>
                     {track.artists.map((artist, artistIndex) => (
                       <span key={artist.id}>
                         {artist.name}
@@ -56,11 +56,11 @@ function Tracks(props) {
       ):
       <div className="flex flex-col items-center justify-center w-full gap-4 pt-6 h-full overflow-scroll bg-slate-100 rounded-xl px-4 shadow-md dark:bg-slate-600">
         {!(props.isRecommend && (props.handleClick === true)) ? 
-        <h1 className='text-center text-xl font-medium text-slate-300'>
+        <h1 className='text-center text-xl font-medium text-slate-300 dark:text-slate-200'>
           {props.text}&nbsp;Will Show Up Here
         </h1> : 
         <h1 className='text-center text-xl font-medium text-slate-300'>
-          No Recommendations Found (Try Selecting New Parameters)
+          No Recommendations Found<br/>(Try Selecting New Parameters)
         </h1>}
       </div>
     }
