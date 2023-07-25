@@ -14,7 +14,6 @@ function Search(props) {
           .then(res => res.json())
           .then(trackResults => {
             setTrackResults(trackResults);
-            console.log(trackResults);
           })
           .catch(error => {
             console.error('Error fetching track results:', error);

@@ -7,13 +7,11 @@ function Recommends(props) {
 
     const getRecommends = () => {
         if(props.seeds.length > 0){
-            console.log(props.params)
             fetch(`http://localhost:5001/recommendations?tracks=${props.seeds.join(',')}&token=${props.token}&params=${encodeURIComponent(props.params)}`)
             .then(res => res.json())
             .then(recommends => {
               setRecommends(recommends.tracks);
               setClick(true);
-              console.log(recommends)
             })
             .catch(error => {
               console.error('Error fetching track results:', error);
