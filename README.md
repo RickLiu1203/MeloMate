@@ -15,14 +15,14 @@ A Smart Music Recommendation Site 🎵
 
 **Same Song Inputs + Different Parameters = Tailored Recommendations**  
 
-![popular](/popular.png)
+![popular](/public/popular.png)
 Above Recommendations are Only Globally Popular Tracks
 
-![unpopular](/unpopular.png)
+![unpopular](/public/unpopular.png)
 Above Recommendations are Only Lesser Known Tracks
 
 **Dark Mode!!**
-![dark](/dark.png)
+![dark](/public/dark.png)
 
 ## Run Locally
 
