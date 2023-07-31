@@ -15,7 +15,7 @@ function Tracks(props) {
                   <span className="font-bold truncate overflow-hidden md:text-base text-sm">
                     {track.name}
                   </span>
-                  <div className='truncate md:text-sm text-xs'>
+                  <div className='truncate md:text-sm text-xs font-semibold'>
                     {track.artists.map((artist, artistIndex) => (
                       <span key={artist.id}>
                         {artist.name}

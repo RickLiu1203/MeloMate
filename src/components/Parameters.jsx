@@ -75,7 +75,7 @@ function Parameters(props) {
               />
               </Listbox.Button>
               
-              <Listbox.Options className="absolute mt-11 h-[62%] w-[calc(100%-2rem)] overflow-auto rounded-lg bg-slate-100
+              <Listbox.Options className="absolute mt-11 h-[62%] max-h-56 w-[calc(100%-2rem)] overflow-auto rounded-lg bg-slate-100
               font-semibold shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-sm z-10 dark:bg-slate-600">
                 {options.map((option) => (
                   <Listbox.Option
