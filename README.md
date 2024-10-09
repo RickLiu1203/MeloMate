@@ -3,6 +3,8 @@
 
 A Smart Music Recommendation Site 🎵
 
+[**NEW IOS COMPANION APP**](https://github.com/RickLiu1203/MeloMateiOS)
+
 ## Features
 
 **Three Step Process:**  
