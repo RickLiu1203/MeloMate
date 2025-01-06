@@ -1,53 +1,60 @@
-import React, {useState, useEffect} from 'react'
-import { Listbox } from '@headlessui/react'
-import params from '../params.json'
+import React, { useState, useEffect } from 'react';
+import { Listbox } from '@headlessui/react';
+import params from '../params.json';
 import Seeds from './Seeds';
-import {FaArrowsAltV, FaGlobeAmericas, FaCheck, FaBatteryQuarter, FaBatteryFull, FaMicrophoneAlt, FaGuitar} from 'react-icons/fa'
-import {BsSoundwave} from 'react-icons/bs'
-import {FaPerson,FaPersonCircleMinus} from 'react-icons/fa6'
-import {CgPiano} from 'react-icons/cg'
-import {IoFootsteps} from 'react-icons/io5'
+import { FaArrowsAltV, FaGlobeAmericas, FaCheck, FaBatteryQuarter, FaBatteryFull, FaMicrophoneAlt, FaGuitar } from 'react-icons/fa';
+import { BsSoundwave } from 'react-icons/bs';
+import { FaPerson, FaPersonCircleMinus } from 'react-icons/fa6';
+import { CgPiano } from 'react-icons/cg';
+import { IoFootsteps } from 'react-icons/io5';
 
-function Parameters(props) {
-  const [selectedOption, setSelectedOption] = useState('none');
-  const [selectedValue, setSelectedValue] = useState(3);
-  const [minValue, setMinValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(55);
+interface ParametersProps {
+  addParams: (params: string) => void;
+  seeds: any[];
+  token: string;
+  removeSeed: (seedId: string) => void;
+}
 
-  const options = ['none', 'popularity', 'energy', 'danceability', 'acousticness', 'instrumentalness']
+const Parameters: React.FC<ParametersProps> = (props) => {
+  const [selectedOption, setSelectedOption] = useState<string>('none');
+  const [selectedValue, setSelectedValue] = useState<number>(3);
+  const [minValue, setMinValue] = useState<number>(0);
+  const [maxValue, setMaxValue] = useState<number>(55);
 
-  const icons = {
-    "popularity": {"min": <FaPerson/>, "max": <FaGlobeAmericas/>},
-    "energy": {"min": <FaBatteryQuarter/>, "max": <FaBatteryFull/>},
-    "danceability": {"min": <FaPersonCircleMinus/>, "max": <IoFootsteps/>},
-    "acousticness": {"min": <BsSoundwave/>, "max": <FaGuitar/>},
-    "instrumentalness": {"min": <FaMicrophoneAlt/>, "max": <CgPiano/>}
-  }
+  const options: string[] = ['none', 'popularity', 'energy', 'danceability', 'acousticness', 'instrumentalness'];
 
-    const handleBarChange = (event) => {
-          const selectedOptionParams = params[selectedOption];
-          const selectedSliderValue = parseInt(event.target.value);
-          setSelectedValue(selectedSliderValue);
-          setMinValue(selectedOptionParams[selectedSliderValue-1]); 
-          setMaxValue(selectedOptionParams[selectedSliderValue]); 
-    };
+  const icons: Record<string, { min: JSX.Element; max: JSX.Element }> = {
+    "popularity": { "min": <FaPerson />, "max": <FaGlobeAmericas /> },
+    "energy": { "min": <FaBatteryQuarter />, "max": <FaBatteryFull /> },
+    "danceability": { "min": <FaPersonCircleMinus />, "max": <IoFootsteps /> },
+    "acousticness": { "min": <BsSoundwave />, "max": <FaGuitar /> },
+    "instrumentalness": { "min": <FaMicrophoneAlt />, "max": <CgPiano /> },
+  };
+
+  const handleBarChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const selectedOptionParams = params[selectedOption];
+    const selectedSliderValue = parseInt(event.target.value, 10);
+    setSelectedValue(selectedSliderValue);
+    setMinValue(selectedOptionParams[selectedSliderValue - 1]);
+    setMaxValue(selectedOptionParams[selectedSliderValue]);
+  };
 
   useEffect(() => {
-      if(selectedOption === 'none'){
-          props.addParams('');
-      } else{
-          props.addParams(`&min_${selectedOption}=${minValue}&max_${selectedOption}=${maxValue}`);
-      }
+    if (selectedOption === 'none') {
+      props.addParams('');
+    } else {
+      props.addParams(`&min_${selectedOption}=${minValue}&max_${selectedOption}=${maxValue}`);
+    }
   }, [minValue, maxValue, selectedOption]);
 
   useEffect(() => {
-    if(selectedOption !== 'none'){
+    if (selectedOption !== 'none') {
       const selectedOptionParams = params[selectedOption];
       setSelectedValue(3);
-      setMinValue(selectedOptionParams[2]); 
-      setMaxValue(selectedOptionParams[3]); 
+      setMinValue(selectedOptionParams[2]);
+      setMaxValue(selectedOptionParams[3]);
     }
-  }, [selectedOption])
+  }, [selectedOption]);
 
   return (
     <div className='flex flex-col w-screen lg:w-[30vw] lg:h-screen h-fit lg:px-0 md:px-10 px-6 lg:mb-0 mb-2'>
@@ -57,7 +64,7 @@ function Parameters(props) {
       </h1>        
       <div className='flex flex-col h-3/4 justify-between lg:gap-0 gap-4'>
         
-        <Seeds seeds={props.seeds} token={props.token} removeSeed={props.removeSeed}/>
+        <Seeds seeds={props.seeds} token={props.token} removeSeed={props.removeSeed} />
         
         <div className='relative flex flex-col shadow-lg rounded-3xl lg:h-[43%] p-4 bg-white gap-2 dark:bg-slate-700 h-72'>
             <h2 className='font-extrabold text-slate-600 dark:text-slate-100'>Select A Parameter</h2>
@@ -89,7 +96,7 @@ function Parameters(props) {
                   >
                       {option === selectedOption ?                     
                       <div className='flex flex-row items-center gap-1 text-green-400 font-extrabold dark:text-slate-100'>
-                        <FaCheck/>
+                        <FaCheck />
                         {option.charAt(0).toUpperCase() + option.slice(1)}
                       </div> : 
                       <div className='flex flex-row items-center gap-1'>
@@ -150,6 +157,5 @@ function Parameters(props) {
     </div>
   );
 }
-  
 
-export default Parameters
+export default Parameters;

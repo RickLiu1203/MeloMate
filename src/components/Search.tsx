@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Tracks from './Tracks';
 
-function Search(props) {
-  const [trackName, setTrackName] = useState('');
-  const [trackResults, setTrackResults] = useState([]);
+interface SearchProps {
+  token: string;
+  addSeed: (seed: string) => void;
+  seeds: string[];
+}
+
+const Search: React.FC<SearchProps> = (props) => {
+  const [trackName, setTrackName] = useState<string>('');
+  const [trackResults, setTrackResults] = useState<any[]>([]);
 
   useEffect(() => {
-    const delay = 750; // Delay in milliseconds
+    const delay = 750;
 
     const timeoutId = setTimeout(() => {
       if (trackName.trim() !== '') {
@@ -39,13 +45,19 @@ function Search(props) {
                 className='w-full p-2 px-4 bg-slate-100 rounded-full h-10 placeholder-slate-300 drop-shadow-md font-semibold
                  text-slate-600 outline-none dark:bg-slate-600 dark:text-slate-200 md:text-base text-sm'
             />
-            <Tracks data={trackResults} handleClick={props.addSeed} 
-                text={'Search Results'} seeds={props.seeds} 
-                clickText={'Added'} isRecommend={false} isSearch={true}
-                isSeeds={false} token={''}/>
+            <Tracks 
+                data={trackResults} 
+                handleClick={props.addSeed} 
+                text={'Search Results'} 
+                seeds={props.seeds} 
+                clickText={'Added'} 
+                isRecommend={false} 
+                isSearch={true}
+                isSeeds={false} 
+                token={''}/>
       </div>
     </div>
   );
-}
+};
 
 export default Search;
